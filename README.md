@@ -17,11 +17,11 @@ MVVMCross project using Xamarin.Forms framework that provides several key benefi
 
 # Thrid party libraries
 
-MvvmCross 6.2.3 -> Base Framework
-NewtonSoft.Json 12.0.1 -> Json Serializer / Deserializer
-Xamarin.FFImageLoading 2.4.4.859 -> Image manipulation and caching
-Xamarin.Forms 3.5.0.169047 -> UI components abstraction library
-Acr.UserDialogs 7.0.3 -> Multiplatform Dialogs library
+- MvvmCross 6.2.3 -> Base Framework
+- NewtonSoft.Json 12.0.1 -> Json Serializer / Deserializer
+- Xamarin.FFImageLoading 2.4.4.859 -> Image manipulation and caching
+- Xamarin.Forms 3.5.0.169047 -> UI components abstraction library
+- Acr.UserDialogs 7.0.3 -> Multiplatform Dialogs library
 
 
 # Project structure
@@ -30,12 +30,12 @@ The project is organized in a typical MvvmCross layout:
 
 3 Solution folders: Application, Platform and Test
 
--Application -> contains ArcTouch.Core project with Behaviors, Services, Constants, Converters, Helpers, Models, ViewModels.  contains ArcTouch.Ui with App.xaml, color resources file, views and pages.
+- Application -> contains ArcTouch.Core project with Behaviors, Services, Constants, Converters, Helpers, Models, ViewModels.  contains ArcTouch.Ui with App.xaml, color resources file, views and pages.
 This projects are .NetStandard 2.0 libraries.
 
--Platform -> this folder contains the Android and iOS platform projects that reference ArcTouch.Core and ArcTouch.Ui
+- Platform -> this folder contains the Android and iOS platform projects that reference ArcTouch.Core and ArcTouch.Ui
 
--Test -> This folder contains a typical Xunit test project (empty) 
+- Test -> This folder contains a typical Xunit test project (empty) 
 
 
 # Project Notes
