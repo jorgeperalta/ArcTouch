@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:MvxContentPage x:TypeArguments="viewModels:SearchViewModel"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+    xmlns:mvx="clr-namespace:MvvmCross.Forms.Bindings;assembly=MvvmCross.Forms"
+    xmlns:local="clr-namespace:ArcTouch.UI.Pages"
+    xmlns:behaviors="clr-namespace:ArcTouch.Core.Behaviors;assembly=ArcTouch.Core"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"   
+    x:Class="ArcTouch.UI.Pages.SearchPage"
+    x:Name="SearchMoviePage"
+    xmlns:viewModels="clr-namespace:ArcTouch.Core.ViewModels.Search;assembly=ArcTouch.Core"
+                      Title="Search Movie">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+              <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+              </Grid.RowDefinitions>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+              </Grid.ColumnDefinitions>
+                <SearchBar Grid.Row="0" Grid.Column="0" TextColor="{StaticResource SecondaryTextColor}"  BackgroundColor="#13796C"
+                    Text="{Binding SearchField}" Placeholder="Movie Name" PlaceholderColor="Silver" >
+                    <StackLayout.TextColor>
+                        <OnPlatform x:TypeArguments="Color" 
+                                    Android="White" 
+                                    iOS="Black"/>
+                    </StackLayout.TextColor>
+                    <SearchBar.Behaviors>
+                        <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding SearchMovieCommand}" />
+                    </SearchBar.Behaviors>
+                </SearchBar>    
+            </Grid>
+            <ListView ItemsSource="{Binding MovieList}" 
+                      x:Name="movieList" 
+                      RowHeight="120" 
+                      CachingStrategy="RecycleElement">
+                <ListView.Behaviors>
+                    <behaviors:EventToCommandBehavior 
+                        EventName="ItemTapped"
+                        Command="{Binding ShowDetailPageCommand}"
+                        Converter="{StaticResource ItemTappedConverter}" />
+                </ListView.Behaviors>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Margin="2" BackgroundColor="{StaticResource BackgroundColor}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="4*" />
+                            </Grid.ColumnDefinitions>
+                            <ffimageloading:CachedImage 
+                                            x:Name="pPhoto" 
+                                            HorizontalOptions="Start"
+                                            Source="{Binding PosterUrl}"  
+                                            CacheDuration="1"
+                                            Aspect="AspectFill" 
+                                            Grid.Column="0"
+                                            WidthRequest="70"
+                                            DownsampleToViewSize="true" />
+
+                            <StackLayout Grid.Column="1" Margin="12, 0, 0, 0" VerticalOptions="Start">
+                            <StackLayout Orientation="Horizontal" Spacing="3" >
+                                <Label Text="{Binding Score}" FontSize="18" TextColor="{StaticResource PrimaryDarkColor}" />
+                                <Label Text=" - " FontSize="16" TextColor="{StaticResource PrimaryDarkColor}" FontAttributes="Bold" />
+                                <Label Text="{Binding ComposedTitle}" FontSize="16" TextColor="{StaticResource PrimaryDarkColor}" FontAttributes="Bold" />
+                            </StackLayout>
+                                <Label Text="{Binding GenresCommaSeparated}" FontSize="14" TextColor="Gray" />
+                            </StackLayout>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</views:MvxContentPage>

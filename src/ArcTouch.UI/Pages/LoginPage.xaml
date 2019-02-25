@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<views:MvxContentPage x:TypeArguments="viewModels:LoginViewModel"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+    xmlns:mvx="clr-namespace:MvvmCross.Forms.Bindings;assembly=MvvmCross.Forms"
+    xmlns:local="clr-namespace:ArcTouch.UI.Pages"
+    x:Class="ArcTouch.UI.Pages.LoginPage"
+    xmlns:viewModels="clr-namespace:ArcTouch.Core.ViewModels.Login;assembly=ArcTouch.Core"
+                      Title="Login page">
+    <ContentPage.Content>
+        <StackLayout Padding="10,50,10,0" Spacing="10">
+        <Entry Placeholder="User name" Text="{Binding UserName}"></Entry>
+        <Entry Placeholder="Password" IsPassword="True" Text="{Binding Password}"></Entry>
+        <Button Text="Login" Command="{Binding LoginCommand}"></Button>
+    </StackLayout>
+    </ContentPage.Content>
+</views:MvxContentPage>

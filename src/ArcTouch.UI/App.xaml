@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Application
+    x:Class="ArcTouch.UI.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="clr-namespace:MvvmCross.Forms;assembly=MvvmCross.Forms"
+    xmlns:converter="clr-namespace:ArcTouch.Core.Converters;assembly=ArcTouch.Core"
+    xmlns:resources="clr-namespace:ArcTouch.UI.Resources">
+    <Application.Resources>
+
+        <!--  Application resource dictionary  -->
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <resources:Colors />
+            </ResourceDictionary.MergedDictionaries>
+            <converter:ItemTappedEventArgsConverter x:Key="ItemTappedConverter" />
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>
