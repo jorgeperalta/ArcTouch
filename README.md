@@ -48,3 +48,7 @@ No UiTest project included as it is not the target of this challenge.
 This application has not been performance profiled with Xamarin Profiler, and memory consumption might not be optimal.
 
 The working executables should be obtained from the Debug / Debug iPhoneSimulator build profiles.
+
+# Important
+
+Tu succesfully login to the application and see the movie catalog, valid account credentials from TMDB website must be used.
